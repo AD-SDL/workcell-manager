@@ -113,7 +113,12 @@ class schedulerManager(Node):
         # This subscriber lets us know which block has finished 
         self.OT2_state_subscriber = self.create_subscription(OT2StateUpdate, "/OT_2/ot2_state_update", self.node_state_update_callback, 10) 
         self.OT2_state_subscriber 
-
+        self.arm_state_reset_subscriber = self.create_subscription(PeelerUpdate, "/peeler/peeler_state_update", self.node_state_update_callback, 10)
+        self.arm_state_reset_subscriber  
+        self.arm_state_reset_subscriber = self.create_subscription(SealerUpdate, "/sealer/sealer_state_update", self.node_state_update_callback, 10)
+        self.arm_state_reset_subscriber
+        self.arm_state_reset_subscriber = self.create_subscription(PlateStackerUpdate, "/platestacker/platestacker_state_update", self.node_state_update_callback, 10)
+        self.arm_state_reset_subscriber                  
         # Initialization Complete
         self.get_logger().info(
             "Scheduler Manager for ID: %s name: %s initialization completed"
@@ -333,6 +338,14 @@ class schedulerManager(Node):
                         # Handle the protocol
                         if(not protocol_split[0] == 'transfer'): # Send files if not a transfer
                             protocol_id_list.append(str(load_protocols_to_ot2(self, node, protocols[i])))
+                        elif protocol_split[0] == "peeler":
+                            #CALL PEELER FUNCTIONS
+                            # _load_peeling(peeler_name_or_id, block_name)
+                        elif protocol_split[0] == "sealer":
+                            #CALL SEALER FUNCTIONS
+                        elif protocol_split[0] == "plate_stacker":
+                            #CALL Plate_STACKER
+                            
                         else: # Protocol is a transfer
                             protocol_split[1] = str(block_tag) + "-" + protocol_split[1]         # Add in tags 
                             protocol_split[2] = str(block_tag) + "-" + protocol_split[2]    
