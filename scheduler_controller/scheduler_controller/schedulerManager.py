@@ -338,13 +338,14 @@ class schedulerManager(Node):
                         # Handle the protocol
                         if(not protocol_split[0] == 'transfer'): # Send files if not a transfer
                             protocol_id_list.append(str(load_protocols_to_ot2(self, node, protocols[i])))
-                        elif protocol_split[0] == "peeler":
-                            #CALL PEELER FUNCTIONS
-                            # _load_peeling(peeler_name_or_id, block_name)
-                        elif protocol_split[0] == "sealer":
-                            #CALL SEALER FUNCTIONS
-                        elif protocol_split[0] == "plate_stacker":
-                            #CALL Plate_STACKER
+                            
+                        # elif protocol_split[0] == "peeler":
+                        #     #CALL PEELER FUNCTIONS
+                        #     # _load_peeling(peeler_name_or_id, block_name)
+                        # elif protocol_split[0] == "sealer":
+                        #     #CALL SEALER FUNCTIONS
+                        # elif protocol_split[0] == "plate_stacker":
+                        #     #CALL Plate_STACKER
                             
                         else: # Protocol is a transfer
                             protocol_split[1] = str(block_tag) + "-" + protocol_split[1]         # Add in tags 
