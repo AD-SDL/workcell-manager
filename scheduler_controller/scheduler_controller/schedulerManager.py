@@ -113,11 +113,11 @@ class schedulerManager(Node):
         # This subscriber lets us know which block has finished 
         self.OT2_state_subscriber = self.create_subscription(OT2StateUpdate, "/OT_2/ot2_state_update", self.node_state_update_callback, 10) 
         self.OT2_state_subscriber 
-        self.arm_state_reset_subscriber = self.create_subscription(PeelerUpdate, "/peeler/peeler_state_update", self.node_state_update_callback, 10)
+        self.arm_state_reset_subscriber = self.create_subscription(PeelerStateUpdate, "/peeler/peeler_state_update", self.node_state_update_callback, 10)
         self.arm_state_reset_subscriber  
-        self.arm_state_reset_subscriber = self.create_subscription(SealerUpdate, "/sealer/sealer_state_update", self.node_state_update_callback, 10)
+        self.arm_state_reset_subscriber = self.create_subscription(SealerStateUpdate, "/sealer/sealer_state_update", self.node_state_update_callback, 10)
         self.arm_state_reset_subscriber
-        self.arm_state_reset_subscriber = self.create_subscription(PlateStackerUpdate, "/platestacker/platestacker_state_update", self.node_state_update_callback, 10)
+        self.arm_state_reset_subscriber = self.create_subscription(PlateStackerStateUpdate, "/platestacker/platestacker_state_update", self.node_state_update_callback, 10)
         self.arm_state_reset_subscriber                  
         # Initialization Complete
         self.get_logger().info(
