@@ -65,8 +65,9 @@ class schedulerManager(Node):
             "READY": 0,
             "ERROR": 2,
             "QUEUED": 3,
+            "COMPLETED": 4
         }
-        self.status = {"ERROR": 1, "SUCCESS": 0, "WARNING": 2, "FATAL": 3, "WAITING": 10}
+        self.status = {"ERROR": 1, "SUCCESS": 0, "WARNING": 2, "FATAL": 3, "COMPLETED": 4,"WAITING": 10}
 
         # Protocol queue
         self.queue_lock = Lock()

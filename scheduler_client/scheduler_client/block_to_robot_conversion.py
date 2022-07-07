@@ -1,4 +1,5 @@
 # ROS libraries 
+from numpy import block
 import rclpy
 from rclpy.node import Node
 
@@ -16,6 +17,9 @@ def convert_block_name(self, block_name):
     # checks
     if(block_name == "unknown"):
         self.get_logger().error("block_name of unknown not allowed, this should have been caught elsewhere")
+        return self.status['ERROR']
+    elif block_name.lower() == "peeler" or block_name.lower() == "sealer" or block_name.lower() == "plate_stacker":
+        self.get_logger().error("Skipping the block_name of peeler/sealer/plate_stacker")
         return self.status['ERROR']
 
     # Wait for service

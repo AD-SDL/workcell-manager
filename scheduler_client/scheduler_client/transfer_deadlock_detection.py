@@ -278,7 +278,7 @@ def main_null():
 
 class test():
     def __init__(self):
-        self.status = {"ERROR": 1, "SUCCESS": 0, "WARNING": 2, "FATAL": 3, "WAITING": 10}
+        self.status = {"ERROR": 1, "SUCCESS": 0, "WARNING": 2, "FATAL": 3, "COMPLETED": 4, "WAITING": 10}
 
 if __name__ == '__main__':
     blocks = [{"block-name":"test1", "tasks":"transfer:test1:test2:20:army transfer:test1:test2:15:army"}, 
